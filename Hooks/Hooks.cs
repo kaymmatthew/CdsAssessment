@@ -33,7 +33,7 @@ namespace CdsAssessment.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
-            browser = RunBrowserType(BrowserType.Firefox);
+            browser = RunBrowserType(BrowserType.Chrome);
             browser.Manage().Window.Maximize();
             new DriverManager().SetUpDriver(new ChromeConfig());
             objectContainer.RegisterInstanceAs(browser);

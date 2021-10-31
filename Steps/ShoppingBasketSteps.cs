@@ -113,15 +113,15 @@ namespace CdsAssessment.Steps
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(tabledetails.Totalproducts, 
-                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt(0)));
+                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt((int)EnumValue.Default)));
                 Assert.AreEqual(tabledetails.Totalshipping,
-                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt(1)));
+                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt((int)EnumValue.First)));
                 Assert.AreEqual(tabledetails.Total,
-                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt(2)));
+                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt((int)EnumValue.Second)));
                 Assert.AreEqual(tabledetails.Tax,
-                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt(3)));
+                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt((int)EnumValue.Third)));
                 Assert.AreEqual(tabledetails.Total,
-                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt(4)));
+                    shoppingBasketPage.GetProductSummaryAtCheckOut(table.Header.ElementAt((int)EnumValue.Fourth)));
             });
         }
 
@@ -131,6 +131,15 @@ namespace CdsAssessment.Steps
             public string Totalshipping { get; set; }
             public string Total { get; set; }
             public string Tax { get; set; }
+        }
+
+        public enum EnumValue
+        {
+            Default = 0,
+            First = 1,
+            Second = 2,
+            Third = 3,
+            Fourth = 4
         }
     }
 }

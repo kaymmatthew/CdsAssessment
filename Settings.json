@@ -1,5 +1,15 @@
 ﻿{
   "Url": {
     "AutomationPractice": "http://automationpractice.com/index.php"
+  },
+  "Locators": {
+    "HoverMouseonImage": "(//img[contains(@class, 'replace')])[1]",
+    "HoverMounseAddTocart": "(//span[text()='Add to cart'])[1]",
+    "viewShoppingcart": "//a[@title='View my shopping cart']",
+    "Removelink": "//span[@class='remove_link']",
+    "CheckoutProductSummary": "//div[@id='order-detail-content']//tbody/tr",
+    "SearchResult": "//*[@id='center_column']/h1",
+    "SearchField": "search_query",
+    "CartCount": "(//a[@title='View my shopping cart']/span)[1]"
   }
 }

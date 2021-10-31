@@ -37,7 +37,6 @@ namespace CdsAssessment.PageObject
         private IWebElement Basket =>
             browser.FindElement(By.XPath("//a[@title='View my shopping cart']"));
 
-
         private IWebElement Removeproduct =>
             browser.FindElement(By.XPath("//span[@class='remove_link']"));
 
@@ -65,12 +64,12 @@ namespace CdsAssessment.PageObject
             browser.Navigate().GoToUrl(SettingsReader.automationPracticeUrl);
         }
 
-        public void HoverMouseOnImg()
+        public void HoverMouseOnImg() 
         {
             Actions actions = new Actions(browser);
-            customHelpers.WaitFor(browser, By.XPath("(//img[contains(@class, 'replace')])[1]"));
+            customHelpers.WaitFor(browser, SettingsReader.HoverMouseOnImage);
             actions.MoveToElement(hoverMouseOnItem).Perform();
-            customHelpers.WaitFor(browser, By.XPath("(//span[text()='Add to cart'])[1]"));
+            customHelpers.WaitFor(browser, SettingsReader.HoverMounseAddTocart);
             addItemToCart.Click();
         }
 
@@ -79,9 +78,9 @@ namespace CdsAssessment.PageObject
         public void RemoveItemFromBasket()
         {
             Actions actions = new Actions(browser);
-            customHelpers.WaitFor(browser, By.XPath("//a[@title='View my shopping cart']"));
+            customHelpers.WaitFor(browser, SettingsReader.ViewShoppingcart);
             actions.MoveToElement(Basket).Perform();
-            customHelpers.WaitFor(browser, By.XPath("//span[@class='remove_link']"));
+            customHelpers.WaitFor(browser, SettingsReader.RemoveLink);
             Removeproduct.Click();
         }
 
@@ -93,13 +92,13 @@ namespace CdsAssessment.PageObject
 
         public IList<IWebElement> GetCheckoutProductSummary()
         {
-            customHelpers.WaitFor(browser, By.XPath("//div[@id='order-detail-content']//tbody/tr"));
+            customHelpers.WaitFor(browser, SettingsReader.CheckoutProductSummary);
             return CheckOutProductList.ToList();
         }
 
         public string GetSearchResult()
         {
-            customHelpers.WaitFor(browser, By.XPath("//*[@id='center_column']/h1"));
+            customHelpers.WaitFor(browser, SettingsReader.SearchResult);
             return searchResult.Text;
         }
 
@@ -107,7 +106,7 @@ namespace CdsAssessment.PageObject
 
         public void searchKeyword(string value)
         {
-            customHelpers.WaitFor(browser, By.Name("search_query"));
+            customHelpers.WaitFor(browser, SettingsReader.SearchField);
             searchField.SendKeys(value + Keys.Enter);
         }
 
@@ -119,7 +118,7 @@ namespace CdsAssessment.PageObject
 
         public string GetCartProductCount()
         {
-            customHelpers.WaitFor(browser, By.XPath("(//a[@title='View my shopping cart']/span)[1]"));
+            customHelpers.WaitFor(browser, SettingsReader.CartCount);
             return cartProductCount.Text;
         }
 
