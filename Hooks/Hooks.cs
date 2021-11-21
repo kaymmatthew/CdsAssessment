@@ -18,10 +18,8 @@ namespace CdsAssessment.Hooks
     public sealed class Hooks : DriverHelper
     {
         IObjectContainer objectContainer;
-        public Hooks(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
+        public Hooks(IObjectContainer objectContainer) => this.objectContainer = objectContainer;
+       
 
         private IWebDriver RunBrowserType(BrowserType BrowserName) => BrowserName switch
         {

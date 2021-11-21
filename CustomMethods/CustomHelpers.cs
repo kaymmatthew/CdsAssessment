@@ -10,7 +10,6 @@ namespace CdsAssessment.CustomMethods
     public class CustomHelpers
     {
         IWebDriver browser;
-        //private readonly IObjectContainer objectContainer;
         public CustomHelpers(IObjectContainer objectContainer)
         {
             this.browser = objectContainer.Resolve<IWebDriver>(); ;

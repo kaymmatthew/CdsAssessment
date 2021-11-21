@@ -86,11 +86,6 @@ namespace CdsAssessment.Steps
             Assert.AreEqual(expectedCount, actualCount.Count);
         }
 
-        [When(@"I proceed to checkout")]
-        public void WhenIProceedToCheckout()
-        {
-        }
-
         [Then(@"I have (\d+) Item in checkout")]
         public void ThenIHaveOneItemInCheckout(int expectedCount)
         {
